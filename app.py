@@ -27,21 +27,21 @@ def main():
         w = whois.whois(ip_address)
 
         # The result 'w' is an object (or dictionary-like) containing parsed fields
-        print(f"--- WHOIS lookup results for {ip_address} ---")
+        print(f"# WHOIS lookup results for {ip_address}\n")
         if w:
                 # Access specific fields if they exist (availability varies)
-            print(f"Raw Text:\n{w.text}\n") # Often useful to see the raw server response
-            print(f"Parsed Data:")
+            print(f"## Raw Text:\n{w.text}\n") # Often useful to see the raw server response
+            print(f"## Parsed Data:\n")
             # Print all attributes of the result object
             for key, value in w.items():
-                    print(f"  {key}: {value}")
+                    print(f"{key}: {value}\n")
         else:
             print("No WHOIS data returned.")
             return 1
         ###
         return 0
     except socket.gaierror as e:
-        print(f"Error resolving IP address or connecting: {e}")
+        print(f"[!] Error resolving IP address or connecting: {e}")
     except Exception as e:
         print(f"[!] Error: {str(e)}")
         return 1
