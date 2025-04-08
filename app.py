@@ -34,7 +34,7 @@ def main():
             print(f"## Parsed Data:\n")
             # Print all attributes of the result object
             for key, value in w.items():
-                    print(f"{key}: {value}\n")
+                    print(f"{key}: {value}")
         else:
             print("No WHOIS data returned.")
             return 1
